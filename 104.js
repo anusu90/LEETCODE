@@ -6,4 +6,5 @@ var maxDepth = function (root) {
     let leftD = maxDepth(root.left) + 1;
     let rightD = maxDepth(root.right) + 1;
     return Math.max(leftD, rightD);
+
 };
