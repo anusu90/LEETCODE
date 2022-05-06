@@ -31,3 +31,21 @@ class Solution:
         print(self.tab)
 
         return self.tab[len(text1)][len(text2)]
+
+# New solution using recurrsion
+class Solution:
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+            n=len(text1)
+            m=len(text2)
+            dp = [[-1 for _ in range(m+1)] for _ in range(n+1)]
+            def recurr(s1,s2,i,j,n,m):
+                if dp[i][j]==-1:
+                    if i==n or j==m:
+                        dp[i][j]=0
+                    elif s1[i]==s2[j]:
+                        dp[i][j] = 1 + recurr(s1,s2,i+1,j+1,n,m)
+                    else:
+                        dp[i][j] = max(recurr(s1,s2,i+1,j,n,m),recurr(s1,s2,i,j+1,n,m))
+                return dp[i][j]
+            sol = recurr(text1,text2,0,0,n,m)
+            return sol
