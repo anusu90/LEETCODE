@@ -5,7 +5,6 @@ class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         n=len(nums)
         sol=[]
-        state = [True]*n
         def bt(curr,hashMap):
             if len(curr)==n:
                 temp=curr[:]
