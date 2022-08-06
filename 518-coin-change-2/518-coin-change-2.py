@@ -1,5 +1,5 @@
 class Solution:
-    def change(self, target: int, nums: List[int]) -> int:
+    def change_tabulation(self, target: int, nums: List[int]) -> int:
         n=len(nums)
         dp=[0 for _ in range(target+1)]
         
@@ -11,7 +11,7 @@ class Solution:
                     dp[j] += dp[j-nums[i-1]]
         return dp[-1]
     
-    def change_recurr(self, target: int, nums: List[int]) -> int:
+    def change(self, target: int, nums: List[int]) -> int:
         n=len(nums)
         dp=[[-1 for _ in range(target+1)] for _ in range(n+1)]
         
