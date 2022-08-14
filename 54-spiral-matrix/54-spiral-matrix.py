@@ -11,12 +11,14 @@ class Solution:
             for i in range(rs,re):
                 sol.append(matrix[i][ce-1])
             ce-=1
-            for i in range(ce-1,cs-1,-1):
-                sol.append(matrix[re-1][i])
+            if rs!=re:
+                for i in range(ce-1,cs-1,-1):
+                    sol.append(matrix[re-1][i])
             re-=1
-            for i in range(re-1,rs-1,-1):
-                sol.append(matrix[i][cs])
+            if cs !=ce:
+                for i in range(re-1,rs-1,-1):
+                    sol.append(matrix[i][cs])
             cs+=1
-        return sol[:m*n]
+        return sol
                 
         
