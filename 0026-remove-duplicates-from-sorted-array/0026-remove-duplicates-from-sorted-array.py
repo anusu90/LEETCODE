@@ -9,9 +9,7 @@ class Solution:
                 s+=1
                 if s!=i:
                     nums[s]=nums[i]
-        print(nums)
         for i in range(1,n):
             if nums[i]<=nums[i-1]:
-                print(i)
                 return i
         
