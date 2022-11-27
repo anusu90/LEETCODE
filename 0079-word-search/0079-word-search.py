@@ -23,11 +23,11 @@ class Solution:
         visited={}
         for i in range(n):
             for j in range(m):
-                visited={}
-                # print("i am called")
-                found = dfs(i,j,0,visited)
-                if found:
-                    return True
+                if board[i][j]==word[0]:
+                    visited={}
+                    found = dfs(i,j,0,visited)
+                    if found:
+                        return True
         return False
         
         
