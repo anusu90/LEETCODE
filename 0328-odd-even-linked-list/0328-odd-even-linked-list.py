@@ -14,7 +14,6 @@ class Solution:
         curr=temp
         count=0
         while curr and curr.next:
-            print(curr.val)
             count+=1
             prev.next=curr.next
             prev=curr
