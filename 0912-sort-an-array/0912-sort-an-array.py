@@ -32,7 +32,6 @@ class Solution:
             right = recurr(mid+1,e)
             return mergeSortedArray(left,right)
         sol = recurr(0,len(nums)-1)
-        print(sol)
         return sol
                     
             
