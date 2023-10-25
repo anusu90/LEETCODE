@@ -7,18 +7,28 @@ var timeLimit = function(fn, t) {
     
 	return async function(...args) {
         return new Promise(function(res,rej){
-            const start = performance.now();
-            const internalPromise  = fn(...args);
+            const internalPromise = fn(...args)
             const timeout = setTimeout(()=>{
                 rej("Time Limit Exceeded")
             },t)
-            internalPromise.then(val=>{
+            internalPromise.then(v=>{
                 clearTimeout(timeout)
-                res(val)
-            }).catch(err=>{
-                rej(err)
-            })
+                res(v)}).catch(e=>{rej(e)})
         })
+        // return new Promise(function(res,rej){
+        //     const start = performance.now();
+        //     const internalPromise  = fn(...args);
+        //     const timeout = setTimeout(()=>{
+        //         rej("Time Limit Exceeded")
+        //     },t)
+        //     internalPromise.then(val=>{
+        //         clearTimeout(timeout)
+        //         res(val)
+        //     }).catch(err=>{
+        //         rej(err)
+        //     })
+        // })
+        
     }
 };
 
